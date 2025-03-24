@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/static/styles.css"> 
+    <link rel="icon" href="/static/question.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Welcome to the Quiz App!</h1>
+
+        <!-- Profile Button -->
+        <a href="{{ url_for('user_profile', user_id=user_id) }}">
+            <button class = "btn" id="view-profile-btn">View Profile</button>
+        </a>
+
+        <!-- Start Quiz Button -->
+        <button class="btn" id="start-quiz-btn">Start Quiz</button>
+
+        <div id="quiz-container" style="display: none;">
+            <div id="quiz-questions"></div>
+            <button id="submit-quiz-btn" style="display: none;">Submit Quiz</button>
+        </div>
+
+        <div id="quiz-result"></div>
+
+    </div>
+
+    <script src="/static/script.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+
+
+</body>
+
+</html>
+
+

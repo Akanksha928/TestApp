@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General reset and body styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #c3a4d8, #b3d8e8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #5c3c6b;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #5c3c6b;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #5c3c6b;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.input-group input::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    opacity: 1;
+}
+
+.input-group input:focus {
+    border-color: #5c3c6b;
+    outline: none;
+}
+
+button.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #c3a4d8;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+button.btn:hover {
+    background-color: #b3d8e8;
+}
+
+#view-profile-btn {
+    position: fixed;
+    width: 10%;
+    top: 20px;
+    right: 20px;
+    white-space: nowrap;
+}
+
+#start-quiz-btn {
+    left: 100px;
+}
+
+#back-to-dash-btn {
+    position: fixed;
+    width: 15%;
+    top: 20px;
+    right: 20px;
+    white-space: nowrap;
+}
+
+p#toggle-form {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #5c3c6b;
+}
+
+p#toggle-form a {
+    color: #c3a4d8;
+    text-decoration: none;
+}
+
+p#toggle-form a:hover {
+    text-decoration: underline;
+}
+
+
+
+.flip-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.flip-card-front {
+    background: #fff;
+    width: 800px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 15px;
+    color: #5c3c6b;
+} 
+
+
+ul {
+    list-style: none;
+} 
+
+ul li {
+    margin: 10px 0;
+    color: #83297d;
+} 
+
+#quiz-result {
+    font-size: 24px;
+    color: #5c3c6b;
+    font-weight: bold;
+}
+
+table {
+    width: 30%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the table */
+    border-radius: 15px;
+    background: #fff;
+}
+
+table th {
+    background-color: #c3a4d8;  /* Soft purple background for the header */
+    color: #5c3c6b; /* White text color */
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: bold;
+}
+
+/* Table Row Styling */
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;  /* Soft border between rows */
+    color: #5c3c6b;
+    font-size: 14px;
+}
+
+/* Hover Effect for Table Rows */
+table tr:hover {
+    background-color: #f9f9f9;  /* Subtle hover effect */
+}
+
+

@@ -1,0 +1,32 @@
+<!-- user_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="/static/question.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Your Past Scores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score, timestamp in scores %}
+            <tr>
+                <td>{{ timestamp.split(' ')[0] }}</td> <!-- Show only the date part -->
+                <td>{{ score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/dashboard" ><button class="btn" id="back-to-dash-btn">Back to Dashboard</button></a>
+</body>
+</html>
