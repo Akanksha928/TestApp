@@ -1,46 +1,140 @@
-usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]
-           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]
-           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]
-           <command> [<args>]
+# Quiz App API Documentation
 
-These are common Git commands used in various situations:
+This project implements a simple Quiz application using Flask, SQLite, and REST API principles. It allows users to register, log in, take quizzes, and view their quiz scores. The application provides endpoints for user authentication, quiz data retrieval, submitting quiz answers, and viewing user profiles.
 
-start a working area (see also: git help tutorial)
-   clone      Clone a repository into a new directory
-   init       Create an empty Git repository or reinitialize an existing one
+## Features
+User Registration and Authentication: Allows users to create accounts and log in using their email and password.
 
-work on the current change (see also: git help everyday)
-   add        Add file contents to the index
-   mv         Move or rename a file, a directory, or a symlink
-   restore    Restore working tree files
-   rm         Remove files from the working tree and from the index
+Quiz Management: Users can access quiz questions, submit answers, and calculate scores.
 
-examine the history and state (see also: git help revisions)
-   bisect     Use binary search to find the commit that introduced a bug
-   diff       Show changes between commits, commit and working tree, etc
-   grep       Print lines matching a pattern
-   log        Show commit logs
-   show       Show various types of objects
-   status     Show the working tree status
+User Profile: After taking the quiz, users can view their past scores and quiz attempts.
 
-grow, mark and tweak your common history
-   backfill   Download missing objects in a partial clone
-   branch     List, create, or delete branches
-   commit     Record changes to the repository
-   merge      Join two or more development histories together
-   rebase     Reapply commits on top of another base tip
-   reset      Reset current HEAD to the specified state
-   switch     Switch branches
-   tag        Create, list, delete or verify a tag object signed with GPG
+Cross-Origin Resource Sharing (CORS): The app allows cross-origin requests for use with a frontend.
 
-collaborate (see also: git help workflows)
-   fetch      Download objects and refs from another repository
-   pull       Fetch from and integrate with another repository or a local branch
-   push       Update remote refs along with associated objects
 
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
+## API Endpoints
+### 1. User Registration
+   
+POST /register
+
+Description: Registers a new user.
+
+Request Body:
+
+```
+{
+  "email": "user@example.com",
+  "password": "password123"
+}
+```
+
+Response:
+
+201 Created: User registered successfully.
+
+400 Bad Request: Missing email or password or user already exists.
+
+### 2. User Login
+   
+POST /login
+
+Description: Logs in an existing user.
+
+Request Body:
+
+```
+{
+  "email": "user@example.com",
+  "password": "password123"
+}
+```
+
+Response:
+
+200 OK: Login successful, returns a cookie with user ID.
+
+401 Unauthorized: Invalid credentials.
+
+### 3. Get Quiz Questions
+
+GET /quiz
+
+Description: Fetches all quiz questions with multiple-choice options.
+
+Response:
+
+```
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "option1": "Berlin",
+    "option2": "Madrid",
+    "option3": "Paris",
+    "option4": "Rome"
+  },
+  ...
+]
+
+```
+### 4. Submit Quiz Answers
+
+POST /submit_quiz
+
+Description: Submits answers for the quiz and calculates the score.
+
+Request Body:
+
+```
+{
+  "user_id": 1,
+  "answers": {
+    "1": "3",
+    "2": "4"
+  }
+}
+```
+Where:
+
+"1": "3" means question 1, answer option 3 (the answer choice).
+
+Response:
+
+200 OK: Score returned.
+
+```
+{
+  "score": 2,
+  "total": 5
+}
+```
+
+400 Bad Request: Missing user ID or answers.
+
+500 Internal Server Error: Issues with the quiz or database.
+
+### 5. User Profile
+   
+GET /user_profile/<user_id>
+
+Description: Fetches the user's past quiz scores.
+
+Response:
+
+200 OK: User profile returned.
+
+```
+<html>
+  <body>
+    <h1>User Profile</h1>
+    <ul>
+      <li>Score: 5, Date: 2025-03-23 12:30:00</li>
+      ...
+    </ul>
+  </body>
+</html>
+
+```
+
+
+
